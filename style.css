@@ -1,0 +1,229 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+--Green-200: hsl(148, 38%, 91%);
+--Green-600: hsl(169, 82%, 27%);
+--Red: hsl(0, 66%, 54%);
+--White: hsl(0, 0%, 100%);
+--Grey-500: hsl(186, 15%, 59%);
+--Grey-900: hsl(187, 24%, 22%);
+}
+
+
+body{
+    background: var(--Green-200);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Karla', sans-serif;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+section{
+    background: var(--White);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.head{
+    font-size: 1.8rem;
+    font-family: 'Karla', sans-serif;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.name-section{
+    display: flex;
+    padding: 10px;
+}
+
+@media (max-width: 450px) {
+    .name-section{
+        flex-direction: column;
+    }
+}
+
+.names{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    font-size: 1rem;
+    color: var(--Grey-900);
+}
+
+
+
+.name{
+    font-size: .8rem;
+    color: var(--Grey-900);
+}
+
+#first{
+    width: 100%;
+    padding: 7px;
+    border-radius: 7px;
+    border: 1.5px solid var(--Grey-900);
+    margin-top: 8px;
+    color: var(--Grey-900);
+    outline: none;
+    cursor: pointer;
+}
+
+#first:hover{
+    border-color: var(--Green-600);
+}
+
+#first.active{
+    border-color: var(--Green-600);
+}
+
+.email-section{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.email{
+    margin: 5px;
+    font-size: .8rem; 
+    color: var(--Grey-900);
+}
+
+#email{
+    width: 100%;
+    border-radius: 7px;
+    border: .5px solid var(--Grey-900);
+    padding: 10px;
+    margin-top: 8px;
+    color: var(--Grey-900);
+}
+
+fieldset{
+    border: 0 none;
+    padding: 15px;
+}
+
+legend{
+    font-size: .8rem;
+    margin: 5px;
+}
+
+.radio{
+    display: flex;
+}
+
+@media (max-width: 450px) {
+    .radio{
+        flex-direction: column;
+    }
+}
+
+.radio-option{
+    display: flex;
+    padding: 7px;
+    width: 100%;
+    margin: 5px;
+    border: 1px solid var(--Grey-900);
+    border-radius: 7px;
+}
+
+.img{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid var(--Green-600);
+    margin: 5px;
+}
+
+.img .radio-mark{
+    display: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid var(--Green-600);
+    float: left;
+}
+
+.radio-mark-p{
+    font-size: .8rem;
+    margin: 5px;
+}
+
+#instruction1{
+    font-size: .8rem;
+}
+
+input[type='radio']{
+    margin: 5px;
+    float: left;
+}
+
+.message{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.message-input{
+    margin: 5px;
+    font-size: .8rem;
+    color: var(--Grey-900);
+}
+
+#message{
+    padding: 10px;
+    border: 1px solid var(--Grey-900);
+    outline: none;
+    border-radius: 7px;
+    color: var(--Grey-900);
+}
+
+.nawa{
+    display: flex;
+}
+
+.consent{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.check{
+    width: 15px;
+    height: 15px;
+    border: 1px solid var(--Green-600);
+    margin: 5px;
+}
+
+.check .checkmark{
+    display: none;
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+.checkmark-p{
+    margin: 5px;
+    font-size: .8rem;
+}
+
+.btn{
+    background: var(--Green-600);
+    border-radius: 7px;
+    border: 1px solid var(--Green-600);
+    width: 100%;
+    padding: 10px;
+    color: var(--White);
+}
+
+.error-message{
+    color: var(--Red);
+    font-size: .8rem;
+    margin: 5px;
+}
