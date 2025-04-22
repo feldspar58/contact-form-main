@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
             radio.classList.add('active');
             radioImgs[index].style.display = 'flex';
-            selectedRadioIndex = index; // mark selected
-            errorMessages[3].style.display = 'none'; // hide radio error
+            selectedRadioIndex = index;
+            errorMessages[3].style.display = 'none';
             console.log(errorMessages);
         });
     });
