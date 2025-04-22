@@ -1,55 +1,115 @@
-document.addEventListener('DOMContentLoaded', () =>{
-    // const nameInputs = document.querySelectorAll('#first');
-    // const emailInput = document.querySelector('#email');
-    // const query = document.querySelectorAll('#select');
-    // const messageInput = document.querySelector('#message');
-    const allInput = document.querySelectorAll('input')
-    const errorMessage = document.querySelectorAll('.error-message');
+document.addEventListener('DOMContentLoaded', () => {
+    const allInputs = document.querySelectorAll('input');
+    const text = document.querySelector('#message');
+    const errorMessages = document.querySelectorAll('.error-message');
     const submitBtn = document.querySelector('.btn');
+    const radioOptions = document.querySelectorAll('.radio-option');
+    const radioImgs = document.querySelectorAll('.radio-mark');
+    const consentBox = document.querySelector('.nawa');
+    const checkmarkImg = document.querySelector('#checkmark');
+    let consentGiven = false;
+    let selectedRadioIndex = null;
+
+    
 
 
-    allInput.forEach(input =>{
-        input.addEventListener('click', (event) =>{
+    const activateFirstVisibleError = () => {
+        errorMessages.forEach(err => err.classList.remove('active'));
+        const firstVisibleError = Array.from(errorMessages).find(err => err.style.display === 'block');
+        if (firstVisibleError) {
+            firstVisibleError.classList.add('active');
+        }
+    };
+
+    allInputs.forEach((input, index) => {
+        input.addEventListener('input', (event) => {
             event.preventDefault();
-            console.log('i clicked an input');
+            errorMessages[index].style.display = 'none';
+            input.style.border = '1px solid var(--Green-600)';
         });
     });
-   
 
-    const inputFilled = () => {
-        let allfilled = true
+    text.addEventListener('input', () => {
+        errorMessages[4].style.display = 'none';
+        text.style.border = '1px solid var(--Green-600)';
+    });
 
+    radioOptions.forEach((radio, index) => {
+        radio.addEventListener('click', () => {
+            radioOptions.forEach((r, i) => {
+                r.classList.remove('active');
+                radioImgs[i].style.display = 'none';
+            });
+    
+            radio.classList.add('active');
+            radioImgs[index].style.display = 'flex';
+            selectedRadioIndex = index; // mark selected
+            errorMessages[3].style.display = 'none'; // hide radio error
+            console.log(errorMessages);
+        });
+    });
+    
+    
 
+    consentBox.addEventListener('click', () => {
+        consentGiven = !consentGiven;
 
-        allInput.forEach(input =>{
-            if(input.value.trim() === ''){
+        if (consentGiven) {
+            consentBox.classList.add('active');
+            checkmarkImg.style.display = 'flex';
+            errorMessages[5].style.display = 'none'; 
+        } else {
+            consentBox.classList.remove('active');
+            checkmarkImg.style.display = 'none';
+        }
+    });
+
+    const validateInputs = () => {
+        let allFilled = true;
+
+        allInputs.forEach((input, index) => {
+            if (input.value.trim() === '') {
                 input.style.border = '1px solid red';
-                document.getElementById('message') === '';
-                document.getElementById('message').style.border = '1px solid red'
-                allfilled = false
+                errorMessages[index].style.display = 'block';
+                allFilled = false;
             }
-          });
+        });
 
-        if(allfilled){
-            console.log('ok')
-        }else{
-            errorMessage.forEach(error =>{
-                error.style.display = 'block'
-            })
+        if (text.value.trim() === '') {
+            text.style.border = '1px solid red';
+            errorMessages[4].style.display = 'block';
+            allFilled = false;
         }
 
-        
-    }
+        const radioChecked = Array.from(radioOptions).some(r => r.classList.contains('active'));
+        if (!radioChecked) {
+            errorMessages[3].style.display = 'block';
+            allFilled = false;
+        }
 
+        if (!consentGiven) {
+            errorMessages[5].style.display = 'block';
+            allFilled = false;
+        }
 
+        if (selectedRadioIndex === null) {
+            errorMessages[3].style.display = 'block';
+            allFilled = false;
+        }        
 
+        if (allFilled) {
+            console.log('Form successfully validated');
+        } else {
+            activateFirstVisibleError();
+        }
+    };
 
-
-
-
-
-    submitBtn.addEventListener('click', (event)=>{
+    submitBtn.addEventListener('click', (event) => {
         event.preventDefault();
-        inputFilled();
-    })
+        validateInputs();
+    });
+    
 });
+
+
+

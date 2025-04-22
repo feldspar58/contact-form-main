@@ -131,6 +131,7 @@ legend{
     margin: 5px;
     border: 1px solid var(--Grey-900);
     border-radius: 7px;
+    cursor: pointer;
 }
 
 .img{
@@ -139,6 +140,7 @@ legend{
     border-radius: 50%;
     border: 1px solid var(--Green-600);
     margin: 5px;
+    cursor: pointer;
 }
 
 .img .radio-mark{
@@ -148,6 +150,7 @@ legend{
     border-radius: 50%;
     border: 1px solid var(--Green-600);
     float: left;
+    cursor: pointer;
 }
 
 .radio-mark-p{
@@ -186,6 +189,7 @@ input[type='radio']{
 
 .nawa{
     display: flex;
+    cursor: pointer;
 }
 
 .consent{
@@ -194,18 +198,21 @@ input[type='radio']{
     padding: 15px;
 }
 
-.check{
+#check{
     width: 15px;
     height: 15px;
     border: 1px solid var(--Green-600);
+    border-radius: 0;
     margin: 5px;
+    cursor: pointer;
 }
 
-.check .checkmark{
+#check #checkmark{
     display: none;
     width: 100%;
     height: 100%;
     float: left;
+    cursor: pointer;
 }
 
 .checkmark-p{
