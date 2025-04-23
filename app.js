@@ -98,7 +98,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }        
 
         if (allFilled) {
+            document.querySelector('.success').style.display = 'block';
             console.log('Form successfully validated');
+        
+            allInputs.forEach(input => {
+                input.value = '';
+                input.style.border = '';
+            });
+    
+            text.value = '';
+            text.style.border = '';
+        
+            radioOptions.forEach((r, i) => {
+                r.classList.remove('active');
+                radioImgs[i].style.display = 'none';
+            });
+            selectedRadioIndex = null;
+    
+            consentGiven = false;
+            consentBox.classList.remove('active');
+            checkmarkImg.style.display = 'none';
         } else {
             activateFirstVisibleError();
         }

@@ -24,6 +24,43 @@ body{
     padding: 20px;
 }
 
+
+
+.success {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--Grey-900);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 15px 25px;
+    color: white;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    font-size: 14px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInOut 3s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+
+
+.success span{
+    display: flex;
+    margin: 5px;
+}
+
 section{
     background: var(--White);
     padding: 20px;
@@ -35,6 +72,7 @@ section{
     font-size: 1.8rem;
     font-family: 'Karla', sans-serif;
     font-weight: 600;
+    color: var(--Grey-900);
     padding: 10px;
 }
 
@@ -227,6 +265,7 @@ input[type='radio']{
     width: 100%;
     padding: 10px;
     color: var(--White);
+    cursor: pointer;
 }
 
 .error-message{
